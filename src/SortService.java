@@ -1,16 +1,29 @@
+import java.util.Arrays;
+
 public class SortService {
     public static int[] insertionSort(int[] array) {
-        for (int i = 1; i < array.length; i++) {
+        for (int target = 1; target < array.length; target++) {
             // find the right place for ith element
-            int need_a_home = array[i];
+            int target_value = array[target];
 
             // the 0ths item to the (i-1)th items are already sorted
-            for (int j = 0; j < i - 1; j++) {
-                if (array[i] < array[i - 1]) {
-                    array = swap(i, i - 1, array);
+            for (int i = 0; i < target; i++) {
+                if (target_value < array[i]) {
+
+                    // move everything down
+                    try {
+                        System.arraycopy(array, i, array, i+1, target-i);
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        e.printStackTrace();
+                    }
+                    
+                    // insert target value where ith element was
+                    array[i] = target_value;
+
+                    // break out of for loop
+                    break;
                 }
             }
-
         }
         return array;
     }

@@ -14,9 +14,16 @@ public class SortingTests {
         assertThat(SortService.insertionSort(array), is(new int[]{1,4}));
     }
 
+    @Test
     public void testInsertionsort_Size5() {
-        int[] array2 = {6,7,4,9,0};
-        assertThat(SortService.insertionSort(array2), is(new int[]{0,4,6,7,9}));
+        int[] array = {6,7,4,9,0};
+        assertThat(SortService.insertionSort(array), is(new int[]{0,4,6,7,9}));
+    }
+
+    @Test
+    public void testInsertionsort_with_negative() {
+        int[] array = {6,7,1,4,-1};
+        assertThat(SortService.insertionSort(array), is(new int[]{-1,1,4,6,7}));
     }
 
     /*
