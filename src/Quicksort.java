@@ -1,34 +1,34 @@
 
 public class Quicksort {
 
-    /*
-     * public static int[] quicksort(int[] array) { int pivot = array[0]; }
-     */
+    public static int[] quicksort(int[] array) {
+        int pivotValue = array[0];
 
-    /**
-     * not arbitrary what data structure to use. java arrays are not that
-     * powerful. dont know current length linkedlist might be better choice
-     */
-    public static int[] quicksortWithArrays(int[] array) {
-        
-        int pivotIndex = (int) Math.floor(array.length / 2);
-        int pivotValue = array[pivotIndex];
+        int l = 0;
+        int r = 0;
 
-        // TODO: when instantiate array. always have to set size?
-        int[] less = new int[array.length];
-
-        int[] more = new int[array.length];
+        int[] left = new int[array.length];
+        int[] right = new int[array.length];
 
         for (int i = 1; i < array.length; i++) {
-            if (array[i] < pivot) {
-                less[less.length] = array[i];
-            } else if (array[i] > pivot) {
-                more[more.length] = array[i];
+            int currValue = array[i];
+            if (currValue < pivotValue) {
+                left[l++] = currValue; 
+            } else if (currValue > pivotValue) {
+                right[r++] = currValue; 
             } else {
                 // when duplicates
             }
         }
+        
+        left = quicksort(shrink(left));
+        right = quicksort(shrink(right));
 
+        return null;
+    }
+
+    private static int[] shrink(int[] right) {
+        // TODO Auto-generated method stub
         return null;
     }
 
