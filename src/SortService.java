@@ -1,6 +1,5 @@
-import java.util.Arrays;
-
 public class SortService {
+
     public static int[] insertionSort(int[] array) {
         for (int target = 1; target < array.length; target++) {
             // find the right place for ith element
@@ -11,11 +10,7 @@ public class SortService {
                 if (target_value < array[i]) {
 
                     // move everything down
-                    try {
-                        System.arraycopy(array, i, array, i+1, target-i);
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                        e.printStackTrace();
-                    }
+                    System.arraycopy(array, i, array, i+1, target-i);
                     
                     // insert target value where ith element was
                     array[i] = target_value;
